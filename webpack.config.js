@@ -2,10 +2,10 @@
 var path = require('path');
 var webpack = require('webpack');
 module.exports = {
- entry: './client/index.js',
+ entry: './src/js/index.js',
  output: {
-  path: path.join(__dirname, 'client'),
-  filename: 'bundle.js'
+  path: path.join(__dirname, 'dist'),
+  filename: 'build.js'
  },
  module: {
   rules: [{
@@ -13,12 +13,16 @@ module.exports = {
    loader: 'babel-loader',
    exclude: /node_modules/,
    query: {
-    presets: ['env', 'react']
+    presets: ['env', 'react', 'es2015', 'stage-2']
    }
   },
   {
    test: /\.css$/,
    loader: "style-loader!css-loader"
-  }]
+  },
+  {
+    test: /\.json$/, // To load the json files
+    loader: 'json-loader'
+   }]
  }
 }
