@@ -8,11 +8,11 @@ const argv = yargs.option('port', {
     description: 'Set the port to run this server on',
     type: 'number',
 }).help().alias('help', 'h').argv
-if(!argv.port) {
-    console.log('Error, you need to pass the port you want to run this application on with npm start -- -p 8001')
-    process.exit(0)
-}
-const port = argv.port
+//if(!argv.port) {
+//    console.log('Error, you need to pass the port you want to run this application on with npm start -- -p 8001')
+//    process.exit(0)
+//}
+const port = 8080
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
